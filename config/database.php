@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of webman.
  *
@@ -12,4 +13,25 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-return [];
+return [
+    // 默认数据库
+    'default' => 'mysql',
+
+    // 各种数据库配置
+    'connections' => [
+        'mysql' => [
+            'driver'      => 'mysql',
+            'host'        => envs('DB_HOST'),
+            'port'        => 3306,
+            'database'    => envs('DB_DATABASE'),
+            'username'    => envs('DB_USERNAME'),
+            'password'    => envs('DB_PASSWORD'),
+            'unix_socket' => '',
+            'charset'     => 'utf8mb4',
+            'collation'   => 'utf8mb4_unicode_ci',
+            'prefix'      => '',
+            'strict'      => true,
+            'engine'      => null,
+        ],
+    ],
+];

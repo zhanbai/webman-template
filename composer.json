@@ -26,7 +26,14 @@
   "require": {
     "php": ">=7.2",
     "workerman/webman-framework": "^1.3.14",
-    "monolog/monolog": "^2.0"
+    "monolog/monolog": "^2.0",
+    "psr/container": "^1.1.1",
+    "illuminate/database": "^8.83",
+    "illuminate/pagination": "^8.83",
+    "illuminate/redis": "^8.83",
+    "webman/console": "^1.0",
+    "workerman/crontab": "^1.0",
+    "robmorgan/phinx": "^0.12.10"
   },
   "suggest": {
     "ext-event": "For better performance. "
@@ -37,7 +44,8 @@
       "App\\": "./app"
     },
     "files": [
-      "./support/helpers.php"
+      "./support/helpers.php",
+      "./app/functions.php"
     ]
   },
   "scripts": {
