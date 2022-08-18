@@ -45,7 +45,7 @@
     },
     "files": [
       "./support/helpers.php",
-      "./app/functions.php"
+      "./app/helpers.php"
     ]
   },
   "scripts": {
