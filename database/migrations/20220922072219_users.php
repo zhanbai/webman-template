@@ -23,6 +23,7 @@ final class Users extends AbstractMigration
         $table->addColumn('name', 'string', ['comment' => '名字'])
             ->addColumn('phone', 'string', ['comment' => '手机号'])
             ->addColumn('password', 'string', ['comment' => '密码'])
+            ->addColumn('avatar', 'string', ['null' => true, 'default' => null, 'comment' => '头像'])
             ->addColumn('created_at', 'timestamp', ['null' => true, 'default' => null])
             ->addColumn('updated_at', 'timestamp', ['null' => true, 'default' => null])
             ->addIndex(array('phone'), array('unique' => true, 'name' => 'users_phone_unique'))

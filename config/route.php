@@ -31,8 +31,10 @@ Route::post('/users/login', [UsersController::class, 'login']);
 Route::get('/users/{id}', [UsersController::class, 'show']);
 
 Route::group('/', function () {
-    // 某个当前用户信息
+    // 当前用户信息
     Route::get('user', [UsersController::class, 'me']);
+    // 更新当前用户信息
+    Route::post('user/update', [UsersController::class, 'update']);
     // 上传图片
     Route::post('images', [ImagesController::class, 'store']);
 })->middleware([

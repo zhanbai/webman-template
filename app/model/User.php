@@ -28,6 +28,7 @@ class User extends Model
         'name',
         'phone',
         'password',
+        'avatar',
     ];
 
     /**

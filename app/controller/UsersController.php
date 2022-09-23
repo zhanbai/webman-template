@@ -75,4 +75,21 @@ class UsersController
     {
         return success($request->user);
     }
+
+    public function update(Request $request)
+    {
+        $data = $request->all();
+
+        $validate = new UserRequest;
+
+        if (!$validate->scene('update')->check($data)) {
+            return fail($validate->getError());
+        }
+
+        $user = User::find($request->user->id);
+        $attributes = $request->only(['name', 'avatar']);
+        $user->update($attributes);
+
+        return success($user);
+    }
 }
