@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of webman.
  *
@@ -13,9 +14,24 @@
  */
 
 use Webman\Route;
+use app\controller\SmsCodesController;
+use app\controller\UsersController;
+use app\middleware\Auth;
 
+Route::disableDefaultRoute();
 
+// 短信验证码
+Route::post('/smsCodes', [SmsCodesController::class, 'store']);
+// 用户注册
+Route::post('/users/signup', [UsersController::class, 'signup']);
+// 用户登录
+Route::post('/users/login', [UsersController::class, 'login']);
+// 某个用户信息
+Route::get('/users/{id}', [UsersController::class, 'show']);
 
-
-
-
+Route::group('/', function () {
+    // 某个当前用户信息
+    Route::get('user', [UsersController::class, 'me']);
+})->middleware([
+    Auth::class,
+]);

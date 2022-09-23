@@ -8,13 +8,14 @@ return [
         'default_migration_table' => 'phinxlog',
         'default_environment'     => 'dev',
         'dev' => [
-            'adapter' => 'mysql',
-            'host'    => envs('DB_HOST'),
-            'name'    => envs('DB_DATABASE'),
-            'user'    => envs('DB_USERNAME'),
-            'pass'    => envs('DB_PASSWORD'),
-            'port'    => 3306,
-            'charset' => 'utf8mb4'
+            'adapter'   => 'mysql',
+            'host'      => envs('DB_HOST'),
+            'name'      => envs('DB_DATABASE'),
+            'user'      => envs('DB_USERNAME'),
+            'pass'      => envs('DB_PASSWORD'),
+            'port'      => 3306,
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
         ]
     ]
 ];
