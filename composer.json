@@ -38,7 +38,8 @@
     "overtrue/easy-sms": "^2.2",
     "giggsey/libphonenumber-for-php": "^8.12",
     "symfony/cache": "^5.2",
-    "firebase/php-jwt": "^6.2"
+    "firebase/php-jwt": "^6.2",
+    "intervention/image": "^2.7"
   },
   "suggest": {
     "ext-event": "For better performance. "

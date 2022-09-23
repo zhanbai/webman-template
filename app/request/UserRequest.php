@@ -10,8 +10,6 @@ class UserRequest extends FormRequest
         'sms_code|验证码' => 'require|number',
     ];
 
-    protected $message = [];
-
     protected $scene = [
         'signup' => ['phone', 'password', 'sms_code'],
         'login' => ['phone', 'password'],

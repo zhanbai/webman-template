@@ -13,6 +13,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+use app\controller\ImagesController;
 use Webman\Route;
 use app\controller\SmsCodesController;
 use app\controller\UsersController;
@@ -32,6 +33,8 @@ Route::get('/users/{id}', [UsersController::class, 'show']);
 Route::group('/', function () {
     // 某个当前用户信息
     Route::get('user', [UsersController::class, 'me']);
+    // 上传图片
+    Route::post('images', [ImagesController::class, 'store']);
 })->middleware([
     Auth::class,
 ]);

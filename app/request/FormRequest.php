@@ -5,6 +5,7 @@ namespace app\request;
 use app\model\User;
 use libphonenumber\PhoneNumberUtil;
 use think\Validate;
+use Webman\File;
 
 class FormRequest extends Validate
 {
@@ -78,5 +79,39 @@ class FormRequest extends Validate
     {
         $user = User::where('phone', $value)->first();
         return !$user ? true : ':attribute已存在';
+    }
+
+    /**
+     * 验证图片的宽高及类型
+     * @access public
+     * @param  mixed $file  上传文件
+     * @param  mixed $rule  验证规则
+     * @return bool
+     */
+    public function image($file, $rule): bool
+    {
+        if (!($file instanceof File)) {
+            return false;
+        }
+
+        if ($rule) {
+            $rule = explode(',', $rule);
+
+            list($width, $height, $type) = getimagesize($file->getRealPath());
+
+            if (isset($rule[2])) {
+                $imageType = strtolower($rule[2]);
+
+                if (image_type_to_extension($type, false) != $imageType) {
+                    return false;
+                }
+            }
+
+            list($w, $h) = $rule;
+
+            return $w == $width && $h == $height;
+        }
+
+        return in_array($this->getImageType($file->getRealPath()), [1, 2, 3, 6]);
     }
 }
