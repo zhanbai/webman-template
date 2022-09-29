@@ -19,7 +19,9 @@ use app\controller\SmsCodesController;
 use app\controller\UsersController;
 use app\middleware\Auth;
 
-Route::disableDefaultRoute();
+Route::options('[{path:.+}]', function (){
+    return response('');
+});
 
 // 短信验证码
 Route::post('/smsCodes', [SmsCodesController::class, 'store']);
@@ -40,3 +42,5 @@ Route::group('/', function () {
 })->middleware([
     Auth::class,
 ]);
+
+Route::disableDefaultRoute();
